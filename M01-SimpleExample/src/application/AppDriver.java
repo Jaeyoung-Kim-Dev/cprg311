@@ -35,7 +35,7 @@ public class AppDriver {
 		Student student = new Student(id, name);
 		student.setProgram(program);
 		
-		FileOutputStream fos = new FileOutputStream("res/student.txt");
+		FileOutputStream fos = new FileOutputStream("res/student.bin");
 		ObjectOutputStream oos = new ObjectOutputStream(fos);
 		
 		oos.writeObject(student);
