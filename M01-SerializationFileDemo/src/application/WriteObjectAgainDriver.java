@@ -28,7 +28,9 @@ public class WriteObjectAgainDriver {
 
 		sb.append("b"); // Changes StringBuilder to “ab”
 		
-		oos.reset();
+		oos.close();
+		fos = new FileOutputStream("res/sb.bin");
+		oos = new ObjectOutputStream(fos);
 		oos.writeObject(sb);
 
 		System.out.println("Wrote to stream.");

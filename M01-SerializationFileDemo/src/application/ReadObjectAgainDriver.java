@@ -23,7 +23,7 @@ public class ReadObjectAgainDriver {
 		ObjectInputStream ois = new ObjectInputStream(fis);
 
 		StringBuilder sb = (StringBuilder) ois.readObject();
-		sb = (StringBuilder) ois.readObject();
+		//sb = (StringBuilder) ois.readObject();
 		
 		System.out.println(sb);
 		

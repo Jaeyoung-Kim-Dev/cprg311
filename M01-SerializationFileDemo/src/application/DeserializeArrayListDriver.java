@@ -3,6 +3,8 @@
  */
 package application;
 
+import problemdomain.*;
+
 import java.io.*;
 import java.util.ArrayList;
 
@@ -11,7 +13,7 @@ import java.util.ArrayList;
  * @version 2019-07-16
  *
  */
-public class DeserializeArryListDriver {
+public class DeserializeArrayListDriver {
 
 	/**
 	 * @param args
