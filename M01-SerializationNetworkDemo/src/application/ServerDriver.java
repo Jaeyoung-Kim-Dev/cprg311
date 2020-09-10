@@ -30,12 +30,26 @@ public class ServerDriver {
 				InputStream inputStream = client.getInputStream();
 				ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
 				
+				OutputStream outputStream = client.getOutputStream();
+				ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
+				
 				System.out.println("Waiting for messages...");
 				
 				while (client.isConnected()) {
 					Message message = (Message) objectInputStream.readObject();
 					
 					System.out.println("Received message: " + message.toString());
+					
+					Message send = new Message("Okay!");
+					objectOutputStream.writeObject(send);
+					
+					if (message.getMessage().equalsIgnoreCase("goodbye")) {
+						Message byeMessage = new Message("Bye!");
+						objectOutputStream.writeObject(byeMessage);
+						
+						client.close();
+						break;
+					}
 				}
 			} catch (IOException ex) {
 				

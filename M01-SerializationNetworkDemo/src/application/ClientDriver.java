@@ -21,8 +21,12 @@ public class ClientDriver {
 		System.out.println("Connected!");
 		System.out.println();
 		
+		
 		OutputStream outputStream = socket.getOutputStream();
 		ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
+		
+		InputStream inputStream = socket.getInputStream();
+		ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
 		
 		while (socket.isConnected()) {
 			System.out.print("Enter message: ");
@@ -30,6 +34,18 @@ public class ClientDriver {
 			
 			Message messageObj = new Message(message);
 			objectOutputStream.writeObject(messageObj);
+			
+			try {
+				Message receive = (Message) objectInputStream.readObject();
+				
+				System.out.println(receive);
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
 			System.out.println("Sent message!");
 		}
