@@ -1,11 +1,9 @@
 /**
  * 
  */
-package problemdomain;
+package domainmodel;
 
 import java.io.Serializable;
-
-import exceptions.InvalidNameException;
 
 /**
  * Represents a student.
@@ -23,9 +21,8 @@ public class Student implements Serializable {
 	 * Constructor for a Student
 	 * @param id Student ID
 	 * @param name Student name
-	 * @throws InvalidNameException 
 	 */
-	public Student(long id, String name) throws InvalidNameException {
+	public Student(long id, String name) {
 		this.setId(id);
 		this.setName(name);
 	}
@@ -58,10 +55,7 @@ public class Student implements Serializable {
 	 * Sets the name
 	 * @param name Student name
 	 */
-	public void setName(String name) throws InvalidNameException {
-		if (name == null || name.length() == 0)
-			throw new InvalidNameException();
-		
+	public void setName(String name) {
 		this.name = name;
 	}
 
@@ -82,7 +76,7 @@ public class Student implements Serializable {
 	}
 	
 	public String toString() {
-		String formatted = String.format("ID: %d, Name: %s, Program: %s", this.id, this.name, this.program);
+		String formatted = String.format("(%d) %s - %s", this.id, this.name, this.program);
 		return formatted;
 	}
 }
