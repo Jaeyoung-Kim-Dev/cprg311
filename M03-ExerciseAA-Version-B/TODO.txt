@@ -1,0 +1,6 @@
+- Add documentation and structure.
+- Improve the client GUI and add a server GUI.
+- Handle players when game ends (play again or one/two leave)
+- Implement observer pattern in client AND server.
+- Implement game logic properly.
+- Synchronize the correct method(s).
