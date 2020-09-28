@@ -1,0 +1,4 @@
+- Fix up Client so it can receive objects without interfering with other code.
+- Server allow multiple connections and pair up clients.
+- Pair of clients can communicate on a seperate thread.
+- Each client will have a listener thread.
