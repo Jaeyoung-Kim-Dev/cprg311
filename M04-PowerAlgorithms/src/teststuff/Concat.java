@@ -17,7 +17,7 @@ package teststuff;
  */
 public class Concat
 {
-	public static final int	TEST_SIZE = 15000;
+	public static final int	TEST_SIZE = 90000;
 	//Attributes
 	private String			str;
 	private StringBuffer	sBuf;
